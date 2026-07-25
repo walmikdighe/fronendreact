@@ -1,0 +1,25 @@
+{
+
+    "title": "Apple iPhone 16 (Teal, 128 GB)",
+
+    "price": 67900,
+
+    "rating": {"rate":4.8, "ratings":195982, "reviews":6900},
+
+    "image": "iphone-teal.png",
+
+    "features": [
+
+        "128 GB ROM",
+
+        "15.49 cm (6.1 inch) Super Retina XDR Display",
+
+        "48MP + 12MP | 12MP Front Camera",
+
+        "A18 Chip, 6 Core Processor Processor",
+
+        "1 year warranty for phone and 1 year warranty for in Box Accessories"
+
+    ]
+
+}
