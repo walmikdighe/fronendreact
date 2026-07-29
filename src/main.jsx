@@ -10,9 +10,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap-icons/font/bootstrap-icons.min.css'
 import { Weather } from './components/weather/Weather.jsx'
+import { Shoping } from './components/shopping/Shoping.jsx'
+import { Parent } from './components/context-api/contextapi.jsx'
+import { ParentComponent } from './components/context-api/parentcomponent.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-   <Weather/>
-  </StrictMode>,
+<ParentComponent/>
+
 )
