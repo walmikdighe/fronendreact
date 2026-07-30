@@ -13,8 +13,9 @@ import { Weather } from './components/weather/Weather.jsx'
 import { Shoping } from './components/shopping/Shoping.jsx'
 import { Parent } from './components/context-api/contextapi.jsx'
 import { ParentComponent } from './components/context-api/parentcomponent.jsx'
+import { FakestoreIndex } from './components/fakestore/fakestore-index.jsx'
 
 createRoot(document.getElementById('root')).render(
-<ParentComponent/>
+<FakestoreIndex/>
 
 )
