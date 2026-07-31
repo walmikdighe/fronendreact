@@ -25,7 +25,7 @@ export function FakestoreIndex(){
     }
     useEffect(()=>{
         Loadcategories();
-    })
+    });
     function handleCategoryChange(e){
       setCategoryName(e.target.value);   
     }
@@ -42,9 +42,42 @@ export function FakestoreIndex(){
                     <button  onClick={handleSearchClick} className="btn btn-warning bi bi-search"></button>
                 </div>
               <div>
-                  <button className="btn btn-warning poisition-relative bi bi-cart4 mx-2">
-                    <span className=" badge  bg-danger text-white rounded rounded-circle postion-absolute"></span>
+                  <button  
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#cart"
+                   className="btn btn-warning position-relative bi bi-cart4 mx-2">
+                    <span className=" badge  bg-danger text-white rounded rounded-circle position-absolute">{cartitems.length}</span>
                   </button>
+                    <div className="offcanvas offcanvas-end" id="cart">
+                        <div className="offcanvas-header">
+                            <h4>Your Cart Items</h4>
+                            <button className="btn btn-close" data-bs-dismiss="offcanvas"></button>
+                        </div>
+                        <div className="offcanvas-body">
+                                <table className="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>price</th>
+                                            <th>Preview</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            cartitems.map(item=><tr key={item.id}>
+                                                <td>{item.title}</td>
+                                                <td>{item.price}</td>
+                                                <td><img width="50" height="50" src={item.image}/></td>
+                                            </tr>)
+                                        }
+                                    </tbody>
+
+                                </table>
+
+                        </div>
+
+                    </div>
+
                 </div> 
             </header>
             <main className="mt-4 row">
@@ -53,9 +86,9 @@ export function FakestoreIndex(){
                         <label className="form-lable fw-bold">Category</label>
                         <select onChange={handleCategoryChange} className="form-select">
                             {
-                                categories.map(category=>{
+                                categories.map(category=>
                                     <option key={category} value={category}>{category.toUpperCase()}</option>
-                                })
+                                )
                             }
                         </select>
                     </div>

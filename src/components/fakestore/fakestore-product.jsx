@@ -1,12 +1,13 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { CategoryContext } from "./fakestore-index";
 
 export function FakestoreProducts({onAddToCartClick}){
-    const [product,setProduct]=useState([{id:0,title:"",price:0,category:'',description:'',image:'',rating:{rate:0,count:0}}]);
-    let categoryName=createContext(null);
+    const [product,setProduct]=useState([{id:0,title:"",price:0,category:'',description:'',image:null,rating:{rate:0,count:0}}]);
+    let categoryName=useContext(CategoryContext);
 
     function LoadProducts(){
-     if(categoryName=="all"){
+     if(categoryName==="all"){
         axios.get(`https://fakestoreapi.com/products`)
         .then(response=>{
             setProduct(response.data);
@@ -28,7 +29,7 @@ export function FakestoreProducts({onAddToCartClick}){
     return(
         <div className="d-flex align-items-baseline overflow-auto flex-wrap" style={{height:'500px'}}>
             {
-                product.map(product=>{
+                product.map(product=>
                     <div key={product.id} className="card m-2 p-2" style={{width:'200px'}}>
                         <img src={product.image} height="100" className="card-img-top"/>
                         <div className="card-header overflow-auto" style={{height:'100px'}}>
@@ -47,7 +48,7 @@ export function FakestoreProducts({onAddToCartClick}){
                             <button onClick={()=>handleAddClick(product)} className="btn btn-warning w-100 bi bi-cart3">Add to Cart</button>
                        </div>
                     </div>
-                })
+                )
             
             }
         </div>
