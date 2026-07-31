@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react"
 
-export function FakestoreProducts(){
+export function FakestoreProducts({onAddToCartClick}){
     const [product,setProduct]=useState([{id:0,title:"",price:0,category:'',description:'',image:'',rating:{rate:0,count:0}}]);
     let categoryName=createContext(null);
 
@@ -23,7 +23,7 @@ export function FakestoreProducts(){
     },[categoryName])
     function handleAddClick(product){
         alert(`${product.title}\n Added To Cart`)
-        onAddToCart(product)
+        onAddToCartClick(product)
     }
     return(
         <div className="d-flex align-items-baseline overflow-auto flex-wrap" style={{height:'500px'}}>
@@ -44,7 +44,7 @@ export function FakestoreProducts(){
                             </dl>
                         </div>
                         <div className="card-footer">
-                            <button     onClick={()=>handleAddClick(product)} className="btn btn-warning w-100 bi bi-cart3">Add to Cart</button>
+                            <button onClick={()=>handleAddClick(product)} className="btn btn-warning w-100 bi bi-cart3">Add to Cart</button>
                        </div>
                     </div>
                 })
