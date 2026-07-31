@@ -16,8 +16,9 @@ import { ParentComponent } from './components/context-api/parentcomponent.jsx'
 import { FakestoreIndex } from './components/fakestore/fakestore-index.jsx'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { ConditionDemo } from './components/condition-demo/condition-demo.jsx'
 
 createRoot(document.getElementById('root')).render(
-<FakestoreIndex/>
+<ConditionDemo/>
 
 )
