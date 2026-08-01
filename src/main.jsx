@@ -20,7 +20,7 @@ import { ConditionDemo } from './components/condition-demo/condition-demo.jsx'
 import { EventDemo } from './components/event-demo/event-demo.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <EventDemo/>
+  <Weather/>
 
 
 )

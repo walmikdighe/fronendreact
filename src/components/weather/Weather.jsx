@@ -4,19 +4,27 @@ import moment from "moment"
 export function Weather(){
     const [weatherObj,setWeatherObj]=useState({Weather:[{description:""}],main:{temp:0,humidity:0},name:"",wind:{speed:0}});
     const [now]=useState(new Date());
+    const [submitCityName,setCityName]=useState("Pune");
+    const [handleCityChange,setCityChange]=useState("");
 
     function LoadWeatherData(){
-        axios.get('https://api.openweathermap.org/data/2.5/weather?q=Hyderabad&appid=5a04bec66297c4b885b3066b77aadd71&units=metric')
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${submitcityName}&appid=ffde9f8d5c9ba8bd3b981d985b15dbbc&units=metric`)
         .then(response=>{
             setWeatherObj(response.data);
         })
     }
+    function handleCityChangeData(e){
+        setCityChange(e.target.value);
+    }
+    function handleSearchClick(e){
+        setCityChange(handleCityChange);
+    }
     useEffect(()=>{
       LoadWeatherData();
-    })
+    },[submitCityName])
     return(
             <div>
-                <header>
+                <header className="bg-light p-2 d-flex flex-row justify-content-between align-items-center fs-5">
                     <div>
                         <span className="bi fw-bold bi-cloud">Weather App</span>
                     </div>
@@ -29,8 +37,8 @@ export function Weather(){
                     </nav>
                     <div>
                         <div className="input-group">
-                            <input type="text" className="form-control" placeholder="Search city"/>
-                            <button className="btn btn-dark bi bi-search"/>
+                            <input type="text" onChange={handleCityChangeData} className="form-control" placeholder="Search city"/>
+                            <button  onClick={}className="btn btn-dark bi bi-search"/>
                         </div>
 
                     </div>
@@ -53,9 +61,12 @@ export function Weather(){
                         <div className="card">
                             <div className="card-header d-flex justify-content-between">
                                 <div>
-                                    <div className="fs-1 fw-bold">{}</div>
-                                    <div className="fs-5">{}</div>
+                                    <div className="fs-1 fw-bold">{weatherObj.name}</div>
+                                    <div className="fs-5">{moment(now).format('dddd,DD MMMM yyyy')}</div>
                               
+                                  </div>
+                                  <div className="mt-2">
+                                    {weatherObj.Weather[0].description.toUpperCase()}
                                   </div>
                                     <div className="card-body">
                                         <div className="mt-4 fs-1 fw-bold">
