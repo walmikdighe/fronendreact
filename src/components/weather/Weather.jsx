@@ -2,13 +2,13 @@ import axios from "axios"
 import {useState,useEffect } from "react"
 import moment from "moment"
 export function Weather(){
-    const [weatherObj,setWeatherObj]=useState({Weather:[{description:""}],main:{temp:0,humidity:0},name:"",wind:{speed:0}});
+    const [weatherObj,setWeatherObj]=useState({weather:[{description:""}],main:{temp:0,humidity:0},name:"",wind:{speed:0}});
     const [now]=useState(new Date());
-    const [submitCityName,setCityName]=useState("Pune");
+    const [submitCityName,setCityName]=useState("Hyderabad");
     const [handleCityChange,setCityChange]=useState("");
 
     function LoadWeatherData(){
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${submitcityName}&appid=ffde9f8d5c9ba8bd3b981d985b15dbbc&units=metric`)
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${submitCityName}&appid=ffde9f8d5c9ba8bd3b981d985b15dbbc&units=metric`)
         .then(response=>{
             setWeatherObj(response.data);
         })
@@ -16,8 +16,8 @@ export function Weather(){
     function handleCityChangeData(e){
         setCityChange(e.target.value);
     }
-    function handleSearchClick(e){
-        setCityChange(handleCityChange);
+    function handleSearchClick(){
+        setCityName(handleCityChange);
     }
     useEffect(()=>{
       LoadWeatherData();
@@ -38,7 +38,7 @@ export function Weather(){
                     <div>
                         <div className="input-group">
                             <input type="text" onChange={handleCityChangeData} className="form-control" placeholder="Search city"/>
-                            <button  onClick={}className="btn btn-dark bi bi-search"/>
+                            <button  onClick={handleSearchClick}className="btn btn-dark bi bi-search"/>
                         </div>
 
                     </div>
@@ -48,7 +48,7 @@ export function Weather(){
                     </div>
                 </header>
                 <main className="row p-5 m-5">
-                    <section className="col-2 bg-light p-2">
+                    <section className="col-3 bg-light p-2 ">
                     <div className="mt-b fw-bold text-primary">Local Weather</div>
                     <div className="mb-4 mt-4">
                         <span className="bi bi-calender-date">Forecast</span>
@@ -66,7 +66,7 @@ export function Weather(){
                               
                                   </div>
                                   <div className="mt-2">
-                                    {weatherObj.Weather[0].description.toUpperCase()}
+                                    {weatherObj.weather[0].description.toUpperCase()}
                                   </div>
                                     <div className="card-body">
                                         <div className="mt-4 fs-1 fw-bold">
@@ -74,7 +74,7 @@ export function Weather(){
                                         </div>
 
                                     </div>
-                                    <div className="card-footer d-flex">
+                                    <div className="card-footer d-flex fixed">
                                         <div className="card bg-dark text-white w-25 p-2 text-center fs-3 fw-bold">
                                             <span className="bi bi-thermometer">{weatherObj.main.humidity}</span>
                                             <div className="fs-6">Humadity</div>
@@ -85,9 +85,7 @@ export function Weather(){
                                         </div>
                                     
                                     </div>
-
                             </div>
-
                         </div>
                     </section>
                     <section className="col-4">
