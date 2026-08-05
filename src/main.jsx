@@ -18,9 +18,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { ConditionDemo } from './components/condition-demo/condition-demo.jsx'
 import { EventDemo } from './components/event-demo/event-demo.jsx'
+import { FormDemo } from './components/form-demo/form-demo.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <Weather/>
+ <FormDemo/>
 
 
 )
