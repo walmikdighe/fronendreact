@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "title": "TV",
+      "price": 34000,
+      "id": "UJ6lxN-svCk"
+    },
+    {
+      "title": "Mobile",
+      "price": 13000,
+      "id": "7Ab8zlT46Y4"
+    },
+    {
+      "title": "remote",
+      "price": 1300,
+      "id": "Ghlud1t9flk"
+    }
+  ],
+  "categories": [
+    {
+      "category_name": "Electronics",
+      "id": "u_dHbrgdn-g"
+    },
+    {
+      "category_name": "Fashion",
+      "id": "JhAAps-os54"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
