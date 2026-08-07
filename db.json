@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "users":[{
         "user_id":"",
         "user_name":"",
@@ -11,4 +12,34 @@
         "date":"",
         "user_id":""
     }]
+=======
+  "products": [
+    {
+      "title": "TV",
+      "price": 34000,
+      "id": "UJ6lxN-svCk"
+    },
+    {
+      "title": "Mobile",
+      "price": 13000,
+      "id": "7Ab8zlT46Y4"
+    },
+    {
+      "title": "remote",
+      "price": 1300,
+      "id": "Ghlud1t9flk"
+    }
+  ],
+  "categories": [
+    {
+      "category_name": "Electronics",
+      "id": "u_dHbrgdn-g"
+    },
+    {
+      "category_name": "Fashion",
+      "id": "JhAAps-os54"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+>>>>>>> 35e6d68148eb0fd501e9217e41d93d6a9faf8572
 }
