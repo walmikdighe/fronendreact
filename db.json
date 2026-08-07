@@ -1,0 +1,14 @@
+{
+    "users":[{
+        "user_id":"",
+        "user_name":"",
+        "password":"",
+        "email":""
+    }],
+    "appiontment":[{
+        "title":"",
+        "description":"",
+        "date":"",
+        "user_id":""
+    }]
+}
