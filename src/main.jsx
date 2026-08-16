@@ -21,7 +21,7 @@ import { EventDemo } from './components/event-demo/event-demo.jsx'
 import { FormDemo } from './components/form-demo/form-demo.jsx'
 
 createRoot(document.getElementById('root')).render(
- <FormDemo/>
+<Databinding/>
 
 
 )
